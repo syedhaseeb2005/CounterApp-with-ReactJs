@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function CounterrApp(){
+
+  const [count,setcount] = useState(0)
+  return(
+    <div className='contanier'>
+      <h1>Counter App</h1>
+      <h2 style={{marginTop:'10px',marginBottom:'15px'}}>{count}</h2>
+      <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+        <button  style={{marginRight:'20px',}} onClick={()=> setcount(count + 1 )}>
+          Increment
+        </button>
+        <button onClick={()=> setcount(count - 1)} disabled={count === 0}>
+          Decrement
+        </button>
+        <button style={{marginLeft:'20px',}} onClick={()=> setcount(0)} disabled={count === 0}>
+          Reset
+        </button>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default CounterrApp
